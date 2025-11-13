@@ -125,7 +125,6 @@ filterButtons.forEach(btn=>{
     });
 });
 </script>
-
 {{-- 💅 Styles --}}
 <style>
 .room-card {
