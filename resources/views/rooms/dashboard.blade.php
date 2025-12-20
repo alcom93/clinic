@@ -10,7 +10,7 @@
     {{-- 🔍 Filtres --}}
     <div class="flex flex-wrap justify-center gap-3 mb-10">
         <button class="filter-btn bg-green-100 text-green-700" data-filter="libre">🟢 Libres</button>
-        <button class="filter-btn bg-yellow-100 text-yellow-700" data-filter="en_preparation">🟡 Préparation</button>
+        <button class="filter-btn bg-yellow-100 text-yellow-700" data-filter="en_preparation">🟡 Reservées</button>
         <button class="filter-btn bg-blue-100 text-blue-700" data-filter="en_nettoyage">🔵 Nettoyage</button>
         <button class="filter-btn bg-red-100 text-red-700" data-filter="occupee">🔴 Occupées</button>
     </div>
@@ -107,7 +107,7 @@
                             @csrf
                             <select name="status" class="w-full border rounded-lg p-2 mb-2">
                                 <option value="libre">Libre</option>
-                                <option value="en_preparation">Préparation</option>
+                                <option value="en_preparation">Réservée</option>
                                 <option value="en_nettoyage">Nettoyage</option>
                             </select>
                             <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">

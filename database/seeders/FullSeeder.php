@@ -29,14 +29,12 @@ class FullSeeder extends Seeder
             ['number' => '15', 'beds' => 1],
             ['number' => '16', 'beds' => 1],
             ['number' => '17', 'beds' => 1],
+            ['number' => '20', 'beds' => 1],
             ['number' => '21', 'beds' => 1],
             ['number' => '22', 'beds' => 1],
             ['number' => '23', 'beds' => 1],
             ['number' => '24', 'beds' => 1],
-
-            // 2 lits
-            ['number' => '20', 'beds' => 2],
-            ['number' => '25', 'beds' => 2],
+            ['number' => '25', 'beds' => 1],
 
             // Suites
             ['number' => 'ST1', 'beds' => 1],
