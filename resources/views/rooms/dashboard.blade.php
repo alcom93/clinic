@@ -109,8 +109,12 @@
                             <input type="text" name="patient[doctor]" placeholder="Médecin"
                                 class="w-full border rounded-lg p-2">
 
-                            <input type="text" name="admission[motif]" placeholder="Motif"
-                                class="w-full border rounded-lg p-2">
+                            <select name="admission[motif]"
+                            class="w-full border rounded-lg p-2 text-lg" required >
+                            <option value="">-Sélectionnez le motif-</option>
+                               <option value="HOSPITALISATION">HOSPITALISATION</option>
+                                  <option value="INTERVENTION">INTERVENTION</option>
+                                  </select>
 
                             <input type="text" name="admission[payment_mode]" placeholder="Mode de paiement"
                                 class="w-full border rounded-lg p-2">
