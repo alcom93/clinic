@@ -114,6 +114,9 @@
                             <option value="">-Sélectionnez le motif-</option>
                                <option value="HOSPITALISATION">HOSPITALISATION</option>
                                   <option value="INTERVENTION">INTERVENTION</option>
+                                  <option value="INTERVENTION">ADN</option>
+                                  <option value="INTERVENTION">CBT</option>
+                            
                                   </select>
 
                             <input type="text" name="admission[payment_mode]" placeholder="Mode de paiement"
