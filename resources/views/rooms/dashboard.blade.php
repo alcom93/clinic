@@ -34,17 +34,20 @@
             @endphp
 
             <div class="room-card-wrapper" data-status="{{ $room->status }}">
-                <div class="bg-white rounded-2xl shadow-lg border-2 {{ $c['border'] }} p-6 hover:shadow-2xl transition">
+                <div class="bg-white rounded-2xl shadow-lg border-2 {{ $c['border'] }} p-6 hover:shadow-2xl transition text-base">
+
 
                     {{-- HEADER --}}
-                    <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-bold text-lg">
-                            {{ $c['icon'] }} Chambre {{ $room->number }}
-                        </h3>
-                        <span class="text-white text-xs px-3 py-1 rounded-full {{ $c['badge'] }}">
-                            {{ $c['label'] }}
-                        </span>
-                    </div>
+                    <div class="relative mb-4 text-center">
+    <h3 class="font-bold text-xl">
+        {{ $c['icon'] }} CH {{ $room->number }}
+    </h3>
+
+    <span class="absolute top-0 right-0 text-white text-xs px-3 py-1 rounded-full {{ $c['badge'] }}">
+        {{ $c['label'] }}
+    </span>
+</div>
+
 
                     {{-- INFOS --}}
                     <div class="text-sm text-gray-600 space-y-1 mb-4">
@@ -53,12 +56,30 @@
 
                         @foreach($admissions as $admission)
                             @php $patient = $admission->patient; @endphp
-                            <div class="p-2 mb-1 border rounded-lg bg-gray-50">
-                                <p><b>👤 Patient :</b> {{ $patient->firstname }} {{ $patient->lastname }}</p>
-                                <p><b>🩺 Médecin :</b> {{ $patient->doctor ?? '—' }}</p>
-                                <p><b>📋 Motif :</b> {{ $admission->motif ?? '—' }}</p>
-                                <p><b>💳 Paiement :</b> {{ $admission->payment_mode ?? '—' }}</p>
-                            </div>
+                         <div class="p-3 mb-2 border rounded-lg bg-gray-50 text-lg leading-relaxed">
+    <p>
+        <span class="font-bold">👤 Patient :</span>
+        <span class="font-extrabold text-xl text-gray-900">
+            {{ $patient->firstname }} {{ $patient->lastname }}
+        </span>
+    </p>
+
+    <p class="mt-1">
+        <span class="font-bold">🩺 Médecin :</span>
+        {{ $patient->doctor ?? '—' }}
+    </p>
+
+    <p>
+        <span class="font-bold">📋 Motif :</span>
+        {{ $admission->motif ?? '—' }}
+    </p>
+
+    <p>
+        <span class="font-bold">💳 Paiement :</span>
+        {{ $admission->payment_mode ?? '—' }}
+    </p>
+</div>
+
                         @endforeach
                     </div>
 
