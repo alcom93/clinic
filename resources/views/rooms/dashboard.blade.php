@@ -13,6 +13,7 @@
         <button class="filter-btn bg-yellow-100 text-yellow-700" data-filter="en_preparation">🟡 Reservées</button>
         <button class="filter-btn bg-blue-100 text-blue-700" data-filter="en_nettoyage">🔵 Nettoyage</button>
         <button class="filter-btn bg-red-100 text-red-700" data-filter="occupee">🔴 Occupées</button>
+        <button class="filter-btn bg-gray-200 text-gray-700" data-filter="non_fonctionnelle"> ⚫ Non fonctionnelle</button>
     </div>
 
     {{-- 🧩 GRID 3 PAR LIGNE --}}
@@ -22,9 +23,10 @@
             @php
                 $colors = [
                     'libre' => ['border'=>'border-green-500','badge'=>'bg-green-500','icon'=>'🟢','label'=>'Libre'],
-                    'en_preparation' => ['border'=>'border-yellow-500','badge'=>'bg-yellow-500','icon'=>'🟡','label'=>'Préparation'],
+                    'en_preparation' => ['border'=>'border-yellow-500','badge'=>'bg-yellow-500','icon'=>'🟡','label'=>'Reservé'],
                     'en_nettoyage' => ['border'=>'border-blue-500','badge'=>'bg-blue-500','icon'=>'🔵','label'=>'Nettoyage'],
                     'occupee' => ['border'=>'border-red-500','badge'=>'bg-red-500','icon'=>'🔴','label'=>'Occupée'],
+                    'non_fonctionnelle' => ['border'=>'border-gray-500','badge'=>'bg-gray-500','icon'=>'⚫','label'=>'Non fonctionnelle'],
                 ];
                 $c = $colors[$room->status];
 
@@ -84,7 +86,11 @@
                     </div>
 
                     {{-- ➕ ADMISSION (SI LITS LIBRES) --}}
-                    @if($occupied < $beds)
+                   @if(
+    $occupied < $beds &&
+    !in_array($room->status, ['en_nettoyage', 'non_fonctionnelle'])
+)
+
                         <button
                             onclick="toggleForm({{ $room->id }})"
                             class="w-full mb-3 bg-green-500 text-white py-2 rounded-xl font-semibold hover:bg-green-600 transition">
@@ -114,8 +120,8 @@
                             <option value="">-Sélectionnez le motif-</option>
                                <option value="HOSPITALISATION">HOSPITALISATION</option>
                                   <option value="INTERVENTION">INTERVENTION</option>
-                                  <option value="INTERVENTION">ADN</option>
-                                  <option value="INTERVENTION">CBT</option>
+                                  <option value="ADN">ADN</option>
+                                  <option value="CBT">CBT</option>
                             
                                   </select>
 
@@ -137,6 +143,8 @@
                                 <option value="libre">Libre</option>
                                 <option value="en_preparation">Réservée</option>
                                 <option value="en_nettoyage">Nettoyage</option>
+                                <option value="non_fonctionnelle">Non fonctionnelle</option>
+
                             </select>
                             <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
                                 🔄 Mettre à jour

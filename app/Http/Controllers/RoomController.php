@@ -16,7 +16,7 @@ class RoomController extends Controller
     public function updateStatus(Request $request, Room $room)
     {
         $request->validate([
-            'status' => 'required|in:libre,en_preparation,en_nettoyage'
+            'status' => 'required|in:libre,en_preparation,en_nettoyage,non_fonctionnelle'
         ]);
 
         $room->update(['status' => $request->status]);
