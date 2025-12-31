@@ -41,9 +41,15 @@
 
                     {{-- HEADER --}}
                     <div class="relative mb-4 text-center">
-    <h3 class="font-bold text-xl">
-        {{ $c['icon'] }} CH {{ $room->number }}
-    </h3>
+  <h3 class="font-bold text-xl">
+    {{ $c['icon'] }}
+    @if(Str::startsWith($room->number, ['ST', 'REA']))
+        {{ $room->number }}
+    @else
+        CH {{ $room->number }}
+    @endif
+</h3>
+
 
     <span class="absolute top-0 right-0 text-white text-xs px-3 py-1 rounded-full {{ $c['badge'] }}">
         {{ $c['label'] }}
